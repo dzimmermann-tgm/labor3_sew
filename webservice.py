@@ -6,6 +6,11 @@ app = Flask(__name__)
 
 @app.route("/lg", methods=['GET'])
 def detect():
+    """
+    Methode die anhand des Parameters text der GET-Abfrage,
+    versucht die Sprache der übergebenen texts und andere 
+    Informationen zu ermitteln
+    """
     text = request.args.get("text")
     result = langdetect.detect_langs(text)        
     best = result[0]                   
@@ -25,6 +30,11 @@ def detect():
 
 @app.route("/", methods=['GET'])
 def hello_user():
+    
+    """
+    Eine freundliche Testmethode
+    """
+    
     return "Hello there"
 
 if __name__ == "__main__":
